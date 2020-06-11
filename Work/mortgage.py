@@ -13,7 +13,7 @@ count = 0;
 while principal > 0:
 	count += 1
 	extrapayment = payment + extra_payment if count >= extra_payment_start_month and count <= extra_payment_end_month else payment
-	principal = principal * (1+rate/12) - extrapayment
+	principal = round(principal * (1+rate/12), 2) - extrapayment
 	total_paid = total_paid + extrapayment
 	print("{} {} {}".format(count, total_paid, principal))
     
