@@ -25,3 +25,4 @@ while principal > 0:
     
 
 print(f'Total paid: {total_paid}, Duration: {count} months')
+
