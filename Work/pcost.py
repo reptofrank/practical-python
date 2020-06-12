@@ -10,5 +10,5 @@ def portfolio_cost(filename):
 			total += int(parts[1]) * float(parts[2])
 		return total
 
-cost = portfolio_cost('Work/Data/portfolio.csv')
+cost = portfolio_cost('Data/portfolio.csv')
 print('Total cost:', cost)
