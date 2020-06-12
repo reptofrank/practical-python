@@ -1,15 +1,17 @@
 # pcost.py
 #
 # Exercise 1.27
+import csv
+
 def portfolio_cost(filename):
 	with open(filename, 'rt') as f:
-		headers = next(f)
+		rows = csv.reader(f)
+		headers = next(rows)
 		total = 0
 		count = 1
-		for line in f:
+		for row in rows:
 			try:
-				parts = line.split(',')
-				total += int(parts[1]) * float(parts[2])
+				total += int(row[1]) * float(row[2])
 			except ValueError:
 				print(f'incomplete data on line {count}')
 			count += 1
