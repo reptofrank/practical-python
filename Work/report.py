@@ -30,6 +30,18 @@ def read_prices(filename):
 		return prices
 
 
+def make_report():
+	portfolio = read_portfolio('Data/portfolio.csv')
+	new_prices = read_prices('Data/prices.csv')
+
+	report = []
+
+	for stock in portfolio:
+		new_price = new_prices[stock['name']]
+		diff = new_price - stock['price']
+		report.append((stock['name'], stock['shares'], new_price, float(f'{diff:0.2f}')))
+
+	return report
 
 if __name__ == '__main__':
 	if len(sys.argv) == 2:
