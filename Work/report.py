@@ -44,5 +44,11 @@ def make_report():
 	return report
 
 if __name__ == '__main__':
-	if len(sys.argv) == 2:
-		print(read_portfolio(sys.argv[1]))
+	report = make_report()
+	headers = ('Name', 'Shares', 'Price', 'Change')
+	print(f'{headers[0]:>10s} {headers[1]:>10s} {headers[2]:>10s} {headers[3]:>10s}')
+	empty = ''
+	print(f'{empty:->10s} {empty:->10s} {empty:->10s} {empty:->10s}')
+	for name, shares, price, change in report:
+		sym_price = f'${price}'
+		print(f'{name:>10s} {shares:>10d} {sym_price:>10s} {change:>10.2f}')

@@ -9,18 +9,17 @@ def portfolio_cost(filename):
 		rows = csv.reader(f)
 		headers = next(rows)
 		total = 0
-		count = 1
-		for row in rows:
+		# count = 1
+		for i, row in enumerate(rows, start=1):
 			try:
 				total += int(row[1]) * float(row[2])
 			except ValueError:
-				print(f'incomplete data on line {count}')
-			count += 1
+				print(f'incomplete data on line {i}')
 		return total
 
 if len(sys.argv) == 2:
 	file = sys.argv[1]
 else:
-	file = 'Data/portfolio.csv'
+	file = 'Data/missing.csv'
 cost = portfolio_cost(file)
 print('Total cost:', cost)
